@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	size_t leaves;
+	size_t nodes;
     binary_tree_t *root;
 
     root = binary_tree_node(NULL, 98);
@@ -22,11 +22,11 @@ int main(void)
 
     binary_tree_print(root);
 
-    leaves = binary_tree_leaves(root);
-    printf("Leaves in %d: %lu\n", root->n, leaves);
-    leaves = binary_tree_leaves(root->right);
-    printf("Leaves in %d: %lu\n", root->right->n, leaves);
-    leaves = binary_tree_leaves(root->left->right);
-    printf("Leaves in %d: %lu\n", root->left->right->n, leaves);
+    nodes = binary_tree_nodes(root);
+    printf("Nodes in %d: %lu\n", root->n, nodes);
+    nodes = binary_tree_nodes(root->right);
+    printf("Nodes in %d: %lu\n", root->right->n, nodes);
+    nodes = binary_tree_nodes(root->left->right);
+    printf("Nodes in %d: %lu\n", root->left->right->n, nodes);
     return (0);
 }

@@ -34,10 +34,11 @@ void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
 size_t binary_tree_height(const binary_tree_t *tree);
 size_t binary_tree_size(const binary_tree_t *tree);
 size_t binary_tree_leaves(const binary_tree_t *tree);
-
+size_t binary_tree_nodes(const binary_tree_t *tree);
 
 /* Helper function */
 void tree_size(const binary_tree_t *tree, size_t *size);
 void leaves_count(const binary_tree_t *tree, size_t *size);
+void node_count(const binary_tree_t *tree, size_t *size);
 
 #endif /* _BINARY_TREES_H_ */
