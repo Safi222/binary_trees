@@ -17,12 +17,14 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 		return (0);
 
 	height = tree_height(tree->left) - tree_height(tree->right);
+	if (height != 0)
+		return (0);
+
 	check_tree_stat(tree, &stat);
+	if (stat != 0)
+		return (0);
 
-	if (stat == 0 && height == 0)
-		return (1);
-
-	return (0);
+	return (1);
 }
 
 /**
