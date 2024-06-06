@@ -78,5 +78,5 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 	}
 
 	/*return ansector*/
-	return (binary_trees_ancestor(first, second));
+	return ((binary_tree_t *) first); /* Since first == second at this point */
 }
