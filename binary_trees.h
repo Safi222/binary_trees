@@ -12,7 +12,7 @@
  * @parent: Pointer to the parent node
  * @left: Pointer to the left child node
  * @right: Pointer to the right child node
- */
+ **/
 typedef struct binary_tree_s
 {
 	int n;
@@ -54,7 +54,5 @@ void leaves_count(const binary_tree_t *tree, size_t *size);
 void node_count(const binary_tree_t *tree, size_t *size);
 void check_tree_stat(const binary_tree_t *tree, int *stat);
 size_t count_nodes(const binary_tree_t *tree);
-
-binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
 
 #endif /* _BINARY_TREES_H_ */
