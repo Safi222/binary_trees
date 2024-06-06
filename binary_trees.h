@@ -50,5 +50,6 @@ void tree_size(const binary_tree_t *tree, size_t *size);
 void leaves_count(const binary_tree_t *tree, size_t *size);
 void node_count(const binary_tree_t *tree, size_t *size);
 void check_tree_stat(const binary_tree_t *tree, int *stat);
+size_t count_leaves(const binary_tree_t *tree);
 
 #endif /* _BINARY_TREES_H_ */

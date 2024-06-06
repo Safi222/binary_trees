@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+#include <stdio.h>
 
 /**
  * binary_tree_is_perfect - Checks if a binary tree is perfect
@@ -10,47 +11,16 @@
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int stat, height;
+	int height, leaves;
 
-	stat = 0;
 	if (tree == NULL)
 		return (0);
 
-	height = tree_height(tree->left) - tree_height(tree->right);
-	if (height != 0)
-		return (0);
+	height = tree_height(tree);
+	leaves = count_leaves(tree) / 2;
 
-	check_tree_stat(tree, &stat);
-	if (stat != 0)
-		return (0);
-
-	return (1);
-}
-
-/**
- * check_tree_stat - Recursively checks the fullness of a binary tree
- * @tree: A pointer to the root node of the tree to check
- * @stat: A pointer to the status counter to update
- *
- * Description: This helper function traverses the tree in a depth-first
- *              manner (pre-order traversal). It increments the status
- *              counter if it encounters a node with only one child,
- *              indicating that the tree is not full.
- */
-void check_tree_stat(const binary_tree_t *tree, int *stat)
-{
-	if (tree == NULL)
-		return;
-
-	check_tree_stat(tree->left, stat);
-	check_tree_stat(tree->right, stat);
-
-	/* check if tree is not leaf */
-	if (tree->left || tree->right)
-	{
-		if ((!tree->left) || (!tree->right))
-			*stat += 1;
-	}
+	/* A perfect binary tree with height h has 2^h - 1 nodes */
+	return (leaves == (1 << height) - 1);
 }
 
 /**
@@ -65,11 +35,30 @@ size_t tree_height(const binary_tree_t *tree)
 {
 	size_t left_height, right_height;
 
-	if (tree == NULL)
+	if (!tree)
 		return (0);
 
 	left_height = tree_height(tree->left);
 	right_height = tree_height(tree->right);
 
 	return ((left_height > right_height ? left_height : right_height) + 1);
+}
+
+/**
+ * count_leaves - Recursively counts the leaves of a binary tree
+ * @tree: A pointer to the root node of the tree to count the leaves
+ *
+ * Return: The number of leaves in the binary tree.
+ */
+size_t count_leaves(const binary_tree_t *tree)
+{
+	size_t count_left, count_right;
+
+	if (!tree)
+		return (0);
+	
+	count_left = count_leaves(tree->left) + 1;
+	count_right = count_leaves(tree->right) + 1;
+
+	return (count_left + count_right);
 }
