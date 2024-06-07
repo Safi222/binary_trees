@@ -46,7 +46,7 @@ int binary_tree_balance(const binary_tree_t *tree);
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
-
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 
 /* Helper function */
 size_t tree_height(const binary_tree_t *tree);
@@ -55,5 +55,7 @@ void leaves_count(const binary_tree_t *tree, size_t *size);
 void node_count(const binary_tree_t *tree, size_t *size);
 void check_tree_stat(const binary_tree_t *tree, int *stat);
 size_t count_nodes(const binary_tree_t *tree);
+void print_tree_levelorder(const binary_tree_t *root, size_t height, void (*func)(int));
+
 
 #endif /* _BINARY_TREES_H_ */
