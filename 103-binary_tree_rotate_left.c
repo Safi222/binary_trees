@@ -19,7 +19,7 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree)
 {
 	binary_tree_t *n_parent;
 
-	if (!tree || !tree->left)
+	if (!(tree || tree->right))
 		return (NULL);
 
 	/*Set the new parent for the tree that is right of the tree*/
