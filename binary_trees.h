@@ -47,6 +47,9 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
+binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
+
 
 /* Helper function */
 size_t tree_height(const binary_tree_t *tree);
